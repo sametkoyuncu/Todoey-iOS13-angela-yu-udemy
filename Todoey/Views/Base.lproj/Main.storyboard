@@ -25,6 +25,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="tintColor" name="Purple"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -32,7 +33,14 @@
                             <outlet property="delegate" destination="DCt-vI-TP9" id="5bz-iA-p7m"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Todoey" id="nX3-oh-Cbt"/>
+                    <navigationItem key="navigationItem" title="Todoey" id="nX3-oh-Cbt">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ukK-ih-gGM">
+                            <color key="tintColor" name="Purple"/>
+                            <connections>
+                                <action selector="addItemButton:" destination="DCt-vI-TP9" id="ovT-5A-4Bu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ko-z6-x3L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -64,10 +72,10 @@
     </scenes>
     <resources>
         <namedColor name="Purple">
-            <color red="0.6705882352941176" green="0.27450980392156865" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.67100000381469727" green="0.27500000596046448" blue="0.82400000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Teal">
-            <color red="0.33333333333333331" green="0.84705882352941175" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.33300000429153442" green="0.84700000286102295" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

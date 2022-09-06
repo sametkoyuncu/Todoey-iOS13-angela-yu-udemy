@@ -1,8 +1,9 @@
 ._*
-Todoey/Views/Base.lproj/._Main.storyboard
-Todoey/Data Model/DataModel.xcdatamodeld/._ DataModel.xcdatamodel
-Todoey/Data Model/._Item.swift
-Todoey/Controllers/._TodoListViewController.swift
+Todoey/Views/Base.lproj/._*
+Todoey/Data Model/DataModel.xcdatamodeld/._*
+Todoey/Data Model/._*
+Todoey/Controllers/._*
 
 # CocoaPods
 Pods/
+Todoey/Data Model/._*

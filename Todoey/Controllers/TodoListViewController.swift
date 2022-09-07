@@ -102,7 +102,7 @@ extension TodoListViewController {
             
             
             cell.accessoryType = item.isDone ? .checkmark : .none
-            cell.textLabel?.textColor = item.isDone ? .gray : .black
+            cell.textLabel?.alpha = item.isDone ? 0.7 : 1
             
             return cell
         }

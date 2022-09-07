@@ -17,6 +17,7 @@
 		F14A0A0428C73200005F84AF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A0A0328C73200005F84AF /* Item.swift */; };
 		F14A0A0628C73211005F84AF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A0A0528C73211005F84AF /* Category.swift */; };
 		F16DA51228C7B28400B1BF37 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16DA51128C7B28400B1BF37 /* SwipeTableViewController.swift */; };
+		F1C3683428C886EB00BA7447 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C3683328C886EB00BA7447 /* AddCategoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		F14A0A0328C73200005F84AF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F14A0A0528C73211005F84AF /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F16DA51128C7B28400B1BF37 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
+		F1C3683328C886EB00BA7447 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 		FB3F366FAB70340C8ADA2F8E /* Pods-Todoey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todoey.debug.xcconfig"; path = "Target Support Files/Pods-Todoey/Pods-Todoey.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 				F12824CC28C5DA7F00F0B9B7 /* CategoryViewController.swift */,
 				EB2BE4FD239524DB00FB933B /* TodoListViewController.swift */,
 				F16DA51128C7B28400B1BF37 /* SwipeTableViewController.swift */,
+				F1C3683328C886EB00BA7447 /* AddCategoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				EB2BE4FE239524DB00FB933B /* TodoListViewController.swift in Sources */,
 				EB2BE4FA239524DB00FB933B /* AppDelegate.swift in Sources */,
 				F16DA51228C7B28400B1BF37 /* SwipeTableViewController.swift in Sources */,
+				F1C3683428C886EB00BA7447 /* AddCategoryViewController.swift in Sources */,
 				F14A0A0628C73211005F84AF /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,7 +333,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -384,7 +388,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

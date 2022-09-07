@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Combine
 
 class CategoryViewController: SwipeTableViewController {
     
@@ -15,7 +16,7 @@ class CategoryViewController: SwipeTableViewController {
     
     // auto-updating container, we don't need '.append()' method anymore
     var categories: Results<Category>?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,34 +24,32 @@ class CategoryViewController: SwipeTableViewController {
     }
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
         
-        var textField = UITextField()
-        
-        alert.addTextField { alertTextField in
-            alertTextField.placeholder = "Shop List"
-            textField = alertTextField
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        let saveAction = UIAlertAction(title: "Save", style: .default) { action in
-            // what will happen once the user clicks the add item button on our uialert
-            
-            if let newName = textField.text {
-                if newName.trimmingCharacters(in: .whitespacesAndNewlines) != "" {
-                    let newCategory = Category()
-                    newCategory.name = newName
-                    
-                    self.save(category: newCategory)
-                }
-            }
-            
-        }
-        
-        alert.addAction(cancelAction)
-        alert.addAction(saveAction)
-        
-        present(alert, animated: true, completion: nil)
+        performSegue(withIdentifier: "goToAddCategory", sender: self)
+        /*
+         // take name from user using alert
+         let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
+         var textField = UITextField()
+         alert.addTextField { alertTextField in
+         alertTextField.placeholder = "Shop List"
+         textField = alertTextField
+         }
+         //let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+         let saveAction = UIAlertAction(title: "Save", style: .default) { action in
+         // what will happen once the user clicks the add item button on our uialert
+         if let newName = textField.text {
+         if newName.trimmingCharacters(in: .whitespacesAndNewlines) != "" {
+         let newCategory = Category()
+         newCategory.name = newName
+         
+         self.save(category: newCategory)
+         }
+         }
+         }
+         //alert.addAction(cancelAction)
+         alert.addAction(saveAction)
+         present(alert, animated: true, completion: nil)
+         */
     }
     
     // MARK: - Data Manipulation Methods
@@ -65,11 +64,11 @@ class CategoryViewController: SwipeTableViewController {
         
         self.tableView.reloadData()
     }
-
-   func loadCategories() {
-       categories = localRealm.objects(Category.self)
-       
-       tableView.reloadData()
+    
+    func loadCategories() {
+        categories = localRealm.objects(Category.self)
+        
+        tableView.reloadData()
     }
     
     // MARK: - Delete Data from Swipe
@@ -109,12 +108,24 @@ extension CategoryViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! TodoListViewController
-        
-        if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.selectedCategory = categories?[indexPath.row]
+        if segue.identifier == "goToItems" {
+            let destinationVC = segue.destination as! TodoListViewController
+            
+            if let indexPath = tableView.indexPathForSelectedRow {
+                destinationVC.selectedCategory = categories?[indexPath.row]
+            }
+        } else if segue.identifier == "goToAddCategory" {
+            let destinationVC = segue.destination as! AddCategoryViewController
+            
+            destinationVC.setCategoryData = { name, color in
+                // veriables
+                let newCategory = Category()
+                newCategory.name = name
+                print("selected color: \(color)")
+                
+                self.save(category: newCategory)
+            }
         }
+        
     }
-    
 }
-

@@ -13,7 +13,6 @@ class AddCategoryViewController: UIViewController {
     
     // Global declaration, to keep the subscription alive.
     var cancellable: AnyCancellable?
-    @IBOutlet weak var selectedColorView: UIView!
     
     var selectedColor: UIColor? {
         didSet {
@@ -23,6 +22,9 @@ class AddCategoryViewController: UIViewController {
     
     var setCategoryData: ((_ name: String, _ color: String) -> ())?
     
+    @IBOutlet weak var modalView: UIView!
+    @IBOutlet weak var selectedColorView: UIView!
+    @IBOutlet weak var xMarkButton: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var selectColorButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
@@ -30,7 +32,10 @@ class AddCategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // add button outlets and set corner radius 20
+        
+        modalView.layer.cornerRadius = 10
+        
+        // set default value for selectedColor
         selectedColor = UIColor(named: "Yellow")
         
         // rounded corners
@@ -74,6 +79,9 @@ class AddCategoryViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func xMarkButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 

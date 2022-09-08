@@ -10,23 +10,29 @@ import UIKit
 import RealmSwift
 
 struct Functions {
-    static func getArrayFromUIColor(for color: UIColor) -> List<Double> {
+    static func getListFromUIColor(for color: UIColor) -> List<Double> {
         let components = color.cgColor.components ?? [1.0, 1.0, 1.0, 1.0]
         
-        let doubleArray = List<Double>()
+        let doubleList = List<Double>()
+        doubleList.append(components[0])
+        doubleList.append(components[1])
+        doubleList.append(components[2])
+        doubleList.append(components[3])
         
-        doubleArray.append(components[0])
-        doubleArray.append(components[1])
-        doubleArray.append(components[2])
-        doubleArray.append(components[3])
-        
-        return doubleArray
+        return doubleList
     }
 
-    static func getUIColorfromArray(for array: List<Double>?) -> UIColor {
-        let color = UIColor(red: array![0], green: array![1], blue: array![2], alpha: array![3])
-
-        return color
+    static func getUIColorFromList(for list: List<Double>?) -> UIColor {
+        if let listDouble = list {
+            let color = UIColor(red: listDouble[0],
+                                green: listDouble[1],
+                                blue: listDouble[2],
+                                alpha: listDouble[3])
+            return color
+        }
+        
+        // default value
+        return UIColor.white
     }
     
 }

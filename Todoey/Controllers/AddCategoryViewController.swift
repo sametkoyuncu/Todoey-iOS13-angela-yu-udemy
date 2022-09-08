@@ -64,7 +64,7 @@ class AddCategoryViewController: UIViewController {
         // name is required
         guard let name = nameTextField.text, name != "" else {
             nameTextField.backgroundColor = UIColor(red: 1.00, green: 0.00, blue: 0.00, alpha: 0.05)
-            nameTextField.placeholder = "Zorunlu alan"
+            nameTextField.placeholder = "Required field"
             return
         }
         

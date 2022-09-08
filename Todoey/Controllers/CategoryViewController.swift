@@ -12,7 +12,7 @@ import Combine
 
 class CategoryViewController: SwipeTableViewController {
     
-    let localRealm = try! Realm()
+     let localRealm = try! Realm()
     
     // auto-updating container, we don't need '.append()' method anymore
     var categories: Results<Category>?
@@ -23,32 +23,7 @@ class CategoryViewController: SwipeTableViewController {
     }
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-        
         performSegue(withIdentifier: "goToAddCategory", sender: self)
-        /*
-         // take name from user using alert
-         let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
-         var textField = UITextField()
-         alert.addTextField { alertTextField in
-         alertTextField.placeholder = "Shop List"
-         textField = alertTextField
-         }
-         //let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-         let saveAction = UIAlertAction(title: "Save", style: .default) { action in
-         // what will happen once the user clicks the add item button on our uialert
-         if let newName = textField.text {
-         if newName.trimmingCharacters(in: .whitespacesAndNewlines) != "" {
-         let newCategory = Category()
-         newCategory.name = newName
-         
-         self.save(category: newCategory)
-         }
-         }
-         }
-         //alert.addAction(cancelAction)
-         alert.addAction(saveAction)
-         present(alert, animated: true, completion: nil)
-         */
     }
     
     // MARK: - Data Manipulation Methods
@@ -95,10 +70,13 @@ extension CategoryViewController {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
         let categoryName = categories?[indexPath.row].name ?? "No categories added yet!"
-        
         cell.textLabel?.text = categoryName
         
-        cell.backgroundColor = Functions.getUIColorfromArray(for: categories?[indexPath.row].color)
+        // right side 40x40px rounded view
+        cell.viewWithTag(45)?.layer.cornerRadius = 20
+        cell.viewWithTag(45)?.backgroundColor = Functions.getUIColorFromList(for: categories?[indexPath.row].color)
+        
+        //cell.backgroundColor = Functions.getUIColorFromList(for: categories?[indexPath.row].color)
         
         return cell
     }
@@ -122,7 +100,7 @@ extension CategoryViewController {
                 // veriables
                 let newCategory = Category()
                 newCategory.name = name
-                newCategory.color = Functions.getArrayFromUIColor(for: color)
+                newCategory.color = Functions.getListFromUIColor(for: color)
                 
                 self.save(category: newCategory)
             }

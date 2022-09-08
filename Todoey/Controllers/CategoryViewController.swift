@@ -19,7 +19,6 @@ class CategoryViewController: SwipeTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         loadCategories()
     }
     
@@ -99,6 +98,8 @@ extension CategoryViewController {
         
         cell.textLabel?.text = categoryName
         
+        cell.backgroundColor = Functions.getUIColorfromArray(for: categories?[indexPath.row].color)
+        
         return cell
     }
     
@@ -121,7 +122,7 @@ extension CategoryViewController {
                 // veriables
                 let newCategory = Category()
                 newCategory.name = name
-                print("selected color: \(color)")
+                newCategory.color = Functions.getArrayFromUIColor(for: color)
                 
                 self.save(category: newCategory)
             }

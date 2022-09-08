@@ -20,7 +20,7 @@ class AddCategoryViewController: UIViewController {
         }
     }
     
-    var setCategoryData: ((_ name: String, _ color: String) -> ())?
+    var setCategoryData: ((_ name: String, _ color: UIColor) -> ())?
     
     @IBOutlet weak var modalView: UIView!
     @IBOutlet weak var selectedColorView: UIView!
@@ -54,6 +54,7 @@ class AddCategoryViewController: UIViewController {
         self.cancellable = picker.publisher(for: \.selectedColor)
             .sink { color in
                 self.selectedColor = color
+                
             }
         
         self.present(picker, animated: true, completion: nil)
@@ -67,14 +68,17 @@ class AddCategoryViewController: UIViewController {
             return
         }
         
+        
         if let color = selectedColor {
-            setCategoryData?(name, "\(color)")
+            setCategoryData?(name, color)
+            
             dismiss(animated: true)
         }
         
         
     }
     
+    // TODO: - create one method for close the modal
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }

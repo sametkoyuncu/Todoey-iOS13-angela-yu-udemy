@@ -11,5 +11,6 @@ import RealmSwift
 
 class Category: Object {
     @Persisted var name: String = ""
+    @Persisted var color = List<Double>()
     @Persisted var items = List<Item>()
 }

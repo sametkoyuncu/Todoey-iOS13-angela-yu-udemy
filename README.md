@@ -9,6 +9,15 @@ Angela Yu'nun Udemy kursunda yaptığım ve çeşitli özellikler eklediğim iOS
 - Seque ile ekranlar arası veri transferi
 - UIColorPickerViewController
 
+## Ekran Görüntüleri
+- Kategoriler
+<img src="https://github.com/sametkoyuncu/Todoey-iOS14-angela-yu-udemy/blob/main/screenshots/categories.png" data-canonical-src="https://github.com/sametkoyuncu/Todoey-iOS14-angela-yu-udemy/blob/main/screenshots/categories.png" width="250" height="500" />
+
+- Yeni Kategori
+<img src="https://github.com/sametkoyuncu/Todoey-iOS14-angela-yu-udemy/blob/main/screenshots/newCategory.png" data-canonical-src="https://github.com/sametkoyuncu/Todoey-iOS14-angela-yu-udemy/blob/main/screenshots/newCategory.png" width="250" height="500" />
+
+- Yapılacaklar Listesi
+<img src="https://github.com/sametkoyuncu/Todoey-iOS14-angela-yu-udemy/blob/main/screenshots/items.png" data-canonical-src="https://github.com/sametkoyuncu/Todoey-iOS14-angela-yu-udemy/blob/main/screenshots/items.png" width="250" height="500" />
 
 ---
 ## Our Goal

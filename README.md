@@ -1,8 +1,16 @@
-![App Brewery Banner](https://github.com/londonappbrewery/Images/blob/master/AppBreweryBanner.png)
-
-
 # Todoey ✓
+Angela Yu'nun Udemy kursunda yaptığım ve çeşitli özellikler eklediğim iOS yapılacaklar uygulaması.
 
+[Ekran Kaydını İzleyin](https://github.com/sametkoyuncu/Todoey-iOS14-angela-yu-udemy/blob/main/screenshots/screen-record.gif?raw=true)
+
+## Kullanılan Teknoloji ve Özellikler
+- Realm
+- Core Data
+- Seque ile ekranlar arası veri transferi
+- UIColorPickerViewController
+
+
+---
 ## Our Goal
 
 The objective of this tutorial is to understand how to save data in iOS. We'll look at various choices and learn to use UserDefaults, Core Data and Realm.

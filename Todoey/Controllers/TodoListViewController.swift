@@ -12,6 +12,8 @@ import ChameleonFramework
 
 class TodoListViewController: SwipeTableViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     let localRealm = try! Realm()
     
     // auto-updating container, we don't need '.append()' method anymore
@@ -25,9 +27,44 @@ class TodoListViewController: SwipeTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.separatorStyle = .none
         tableView.rowHeight = 60
+        
+        let color1 = Functions.getUIColorFromList(for: selectedCategory?.color)
+        let color2 = color1.darken(byPercentage: 0.5)
+        
         loadItems()
+        view.backgroundColor = GradientColor(.topToBottom, frame: view.frame, colors: [color1, color2!, color1])
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let color = Functions.getUIColorFromList(for: selectedCategory?.color)
+        let contrastColor = ContrastColorOf(color, returnFlat: true)
+        
+        title = selectedCategory?.name
+        searchBar.tintColor = contrastColor
+        searchBar.searchTextField.textColor = contrastColor
+        searchBar.barTintColor = color
+        
+        guard let navBar = navigationController?.navigationBar else { fatalError("Navigation controller does not exist.") }
+        
+        navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: contrastColor]
+        navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: contrastColor]
+        
+        navBar.barTintColor = color
+        navBar.backgroundColor = UIColor.init(white: 1.0, alpha: 0)
+        navBar.tintColor = contrastColor
+    }
+    // claar custon colors
+    override func viewWillDisappear(_ animated: Bool) {
+        guard let navBar = navigationController?.navigationBar else { fatalError("Navigation controller does not exist.") }
+        
+        navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "Purple")!]
+        navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "Purple")!]
+        
+        navBar.barTintColor = UIColor(named: "Purple")
+        navBar.backgroundColor = UIColor.white
     }
     
     // Add new items
@@ -110,6 +147,7 @@ extension TodoListViewController {
             }
             
             cell.accessoryType = item.isDone ? .checkmark : .none
+            
             cell.textLabel?.alpha = item.isDone ? 0.7 : 1
             
             return cell
